@@ -4,4 +4,4 @@ import { config } from'dotenv';
 // Setting NODE_ENV in .env itself does not affect which file is loaded, because the selection happens before dotenv reads the file.
 config({ path: `.env.${process.env.NODE_ENV || 'development'}.local` });
 
-export const { PORT, NODE_ENV, DB_URI } = process.env;
+export const { PORT, NODE_ENV, DB_URI, JWT_EXPIRES_IN, JWT_SECRET } = process.env;
