@@ -7,6 +7,7 @@ import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
+import arcjetMiddleware from "./controllers/arcjet.middleware.js";
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // read cookies from incoming req
 app.use(cookieParser());
+
+// avoiding exceed rate limit and bot
+app.use(arcjetMiddleware);
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
