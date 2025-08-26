@@ -1,6 +1,6 @@
-import express from 'express';
-import cookieParser from 'cookie-parser'
-import {PORT} from "./config/env.js";
+import express from "express";
+import cookieParser from "cookie-parser";
+import { PORT } from "./config/env.js";
 
 import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
@@ -17,18 +17,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // read cookies from incoming req
-app.use(cookieParser())
+app.use(cookieParser());
 
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/user', userRouter);
-app.use('/api/v1/subscription', subscriptionRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/subscription", subscriptionRouter);
 
 app.use(errorMiddleware);
 
-app.get('/', (req, res)=>{
-    res.send('Welcome to the Personal Projects');
-})
-app.listen(PORT, async ()=> {
-        console.log(`Server started on port: ${PORT}`)
-    await connectToDatabase();
+app.get("/", (req, res) => {
+  res.send("Welcome to the Personal Projects");
+});
+app.listen(PORT, async () => {
+  console.log(`Server started on port: ${PORT}`);
+  await connectToDatabase();
 });
