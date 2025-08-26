@@ -3,6 +3,7 @@ import User from "../models/user.models.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.js";
+import validRoles from "../constant/roles.js";
 
 export const signUp = async (req, res, next) => {
   // Database operations are atomic. (ex: Insert either works completely or it doesn't)
@@ -10,7 +11,13 @@ export const signUp = async (req, res, next) => {
   session.startTransaction();
 
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
+
+    if (!validRoles.includes(role)) {
+      const error = new Error(`${role} is not a valid type for role`);
+      error.statusCode = 403;
+      throw error;
+    }
 
     const existingUser = await User.findOne({ email });
 
@@ -26,7 +33,7 @@ export const signUp = async (req, res, next) => {
 
     // if something went wrong when creating user, 'session' will identify that and trigger the catch block
     const newUsers = await User.create(
-      [{ name, email, password: hashedPassword }],
+      [{ name, email, role, password: hashedPassword }],
       { session },
     );
     const token = jwt.sign({ userId: newUsers[0]._id }, JWT_SECRET, {
