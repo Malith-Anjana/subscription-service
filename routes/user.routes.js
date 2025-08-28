@@ -5,7 +5,7 @@ import { authenticate, authorize } from "../middlewares/auth.middleware.js";
 const userRouter = Router();
 
 userRouter.get("/", authenticate, authorize(["admin"]), getUsers);
-userRouter.get("/:id", authenticate, authorize([" admin"]), getUser);
+userRouter.get("/:id", authenticate, authorize(["admin"]), getUser);
 
 userRouter.post("/", async (req, res) => {
   res.send({ title: "Create a user" });
