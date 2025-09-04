@@ -1,10 +1,9 @@
-import { createRequire } from "module";
-import Subscription from "../models/subscription.models.js";
 import dayjs from "dayjs";
-import { sendReminderEmail } from "../utils/send-email.js";
+import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-//  cannot directly use require, because in package.json we use "type": "module"
 const { serve } = require("@upstash/workflow/express");
+import Subscription from "../models/subscription.models.js";
+import { sendReminderEmail } from "../utils/send-email.js";
 
 const REMINDERS = [7, 5, 2, 1];
 
@@ -18,7 +17,7 @@ export const sendReminders = serve(async (context) => {
 
   if (renewalDate.isBefore(dayjs())) {
     console.log(
-      `Renewal date has passed for subscription ${subscriptionId}. Stopping workflow`,
+      `Renewal date has passed for subscription ${subscriptionId}. Stopping workflow.`,
     );
     return;
   }
@@ -27,15 +26,25 @@ export const sendReminders = serve(async (context) => {
     const reminderDate = renewalDate.subtract(daysBefore, "day");
 
     if (reminderDate.isAfter(dayjs())) {
-      await sleepUntilReminder(context, `Reminder ${daysBefore} days before.`);
+      await sleepUntilReminder(
+        context,
+        `Reminder ${daysBefore} days before`,
+        reminderDate,
+      );
     }
 
-    await triggerReminder(context, `${daysBefore} days before reminder`);
+    if (dayjs().isSame(reminderDate, "day")) {
+      await triggerReminder(
+        context,
+        `${daysBefore} days before reminder`,
+        subscription,
+      );
+    }
   }
 });
 
 const fetchSubscription = async (context, subscriptionId) => {
-  return await context.run("get subscription", () => {
+  return await context.run("get subscription", async () => {
     return Subscription.findById(subscriptionId).populate("user", "name email");
   });
 };
