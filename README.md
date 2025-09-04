@@ -9,10 +9,6 @@
   <h3 align="center">A Subscription Management System API</h3>
 </div>
 
- Here’s the **modified GitHub project description** based on your request 🚀:
-
----
-
 # 📌 Subscription Management System API
 
 A **production-ready RESTful API** for managing subscriptions, users, and payments.
@@ -22,25 +18,25 @@ This project is designed to handle **real users, real money, and real business l
 
 ## 🚀 Features
 
-* 🔑 **User Authentication** with JWT (JSON Web Tokens)
-* 🗄️ **Database Integration** with ORM for seamless data handling
-* 📦 **Models & Schemas** for Users, Subscriptions, and Payments
-* 🛠️ **Role-based Authorization** (Admin & User)
-* 💳 **Subscription Management** (create, update, cancel, expire)
-* 📡 **API-first Architecture** for easy frontend integration
-* ⚡ **Scalable Architecture** (controllers, routes, middleware)
-* 🛡️ **Error Handling & Validation** for production safety
-
+* 🔑 **JWT Authentication**: User CRUD operations and subscription management.
+* ⌛ **Advanced Rate Limiting and Bot Protection** with Arcjet that helps you secure the whole app.
+* 🗄️ **Database Integration** with ORM for seamless data handling.
+* 📦 **Database Modeling**: Models and relationships using MongoDB & Mongoose.
+* 📩 **Email Reminders**: Automating smart email reminders with workflows using Upstash.
+* 🛠️ **Role-based Authorization** (Admin & User).
+* 💳 **Subscription Management** (create, update, cancel, expire).
+* 📡 **API-first Architecture** for easy frontend integration.
+* ⚡ **Scalable Architecture** (controllers, routes, middleware).
+* 🛡️ **Global Error Handling**: Input validation and middleware integration.
 ---
 
 ## 🏗️ Tech Stack
 
 * **Node.js + Express** – REST API framework
-* **MongoDB / PostgreSQL** – Database
-* **Mongoose / Prisma** – ORM for schema and query management
+* **MongoDB** – Database
+* **Mongoose** – ORM for schema and query management
 * **JWT** – Authentication & secure token handling
 * **Bcrypt** – Password hashing
-* **Docker-ready** for deployment
 
 ---
 
@@ -70,6 +66,7 @@ QSTASH_URL=http://127.0.0.1:8080
 QSTASH_TOKEN=
 
 # NODEMAILER
+EMAIL=
 EMAIL_PASSWORD=
 ```
 
@@ -91,13 +88,5 @@ EMAIL_PASSWORD=
 
 ---
 
-## 🌍 Community
-
-If you’re just getting started or facing issues, join our **active Discord community with 50k+ developers**.
-It’s a place where people help each other out and share knowledge.
-
----
-
-Do you also want me to add a **📬 Example API request (cURL/Postman)** using that dummy JSON so people can test subscriptions right away?
 
 
