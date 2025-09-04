@@ -7,58 +7,44 @@
   </div>
 
   <h3 align="center">A Subscription Management System API</h3>
-
-   <div align="center">
-   A production-ready RESTful API for managing subscriptions, users, and payments.
-This project is designed to handle real users, real money, and real business logic, ensuring scalability, security, and smooth integration with frontend applications.
 </div>
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+ Here’s the **modified GitHub project description** based on your request 🚀:
 
-- Node.js
-- Express.js
-- MongoDB
+---
 
-## <a name="features">🔋 Features</a>
+# 📌 Subscription Management System API
 
-👉 **Advanced Rate Limiting and Bot Protection**: with Arcjet that helps you secure the whole app.
+A **production-ready RESTful API** for managing subscriptions, users, and payments.
+This project is designed to handle **real users, real money, and real business logic**, ensuring scalability, security, and smooth integration with frontend applications.
 
-👉 **Database Modeling**: Models and relationships using MongoDB & Mongoose.
+---
 
-👉 **JWT Authentication**: User CRUD operations and subscription management.
+## 🚀 Features
 
-👉 **Global Error Handling**: Input validation and middleware integration.
+* 🔑 **User Authentication** with JWT (JSON Web Tokens)
+* 🗄️ **Database Integration** with ORM for seamless data handling
+* 📦 **Models & Schemas** for Users, Subscriptions, and Payments
+* 🛠️ **Role-based Authorization** (Admin & User)
+* 💳 **Subscription Management** (create, update, cancel, expire)
+* 📡 **API-first Architecture** for easy frontend integration
+* ⚡ **Scalable Architecture** (controllers, routes, middleware)
+* 🛡️ **Error Handling & Validation** for production safety
 
-👉 **Logging Mechanisms**: For better debugging and monitoring.
+---
 
-👉 **Email Reminders**: Automating smart email reminders with workflows using Upstash.
+## 🏗️ Tech Stack
 
-and many more, including code architecture and reusability
+* **Node.js + Express** – REST API framework
+* **MongoDB / PostgreSQL** – Database
+* **Mongoose / Prisma** – ORM for schema and query management
+* **JWT** – Authentication & secure token handling
+* **Bcrypt** – Password hashing
+* **Docker-ready** for deployment
 
-## <a name="quick-start">🤸 Quick Start</a>
+---
 
-Follow these steps to set up the project locally on your machine.
-
-
-
-**Cloning the Repository**
-
-```bash
-git clone https://github.com/adrianhajdin/subscription-tracker-api.git
-cd subscription-tracker-api
-```
-
-**Installation**
-
-Install the project dependencies using npm:
-
-```bash
-npm install
-```
-
-**Set Up Environment Variables**
-
-Create a new file named `.env.local` in the root of your project and add the following content:
+## 🧩 Environment Variables (`.env`)
 
 ```env
 # PORT
@@ -85,11 +71,12 @@ QSTASH_TOKEN=
 
 # NODEMAILER
 EMAIL_PASSWORD=
-EMAIL=
 ```
 
+---
 
-**Dummy JSON Data**
+## 📊 Dummy JSON Data
+
 ```json
 {
   "name": "Javascript Mastery Elite Membership",
@@ -102,5 +89,15 @@ EMAIL=
 }
 ```
 
-</details>
+---
+
+## 🌍 Community
+
+If you’re just getting started or facing issues, join our **active Discord community with 50k+ developers**.
+It’s a place where people help each other out and share knowledge.
+
+---
+
+Do you also want me to add a **📬 Example API request (cURL/Postman)** using that dummy JSON so people can test subscriptions right away?
+
 
